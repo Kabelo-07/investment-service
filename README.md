@@ -83,6 +83,8 @@ PostgreSQL init process complete; ready for start up.
 
 ```
 
+NOTE: if you dont see the above, just run `docker-compose -f down --volumes` to clear any volumes that might be preventing the db from being created
+
 ### Database creation
 On investment-db container startup, an initialization script `investments-db-init.sh` (located in `db/` folder in the project's root directory) is executed. This creates the required `investment_db` in PostgreSQL 
 
