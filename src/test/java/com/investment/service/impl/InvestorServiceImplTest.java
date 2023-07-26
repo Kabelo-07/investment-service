@@ -41,6 +41,8 @@ class InvestorServiceImplTest {
 
         //when
         investor = investorRepository.save(investor);
+        assertThat(investor.getCreatedDate()).isNotNull();
+        assertThat(investor.getUpdatedDate()).isNotNull();
 
         //then
         InvestorModel model = investorService.findInvestorById(investor.getId());

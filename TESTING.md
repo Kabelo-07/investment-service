@@ -30,3 +30,7 @@ Once a withdrawal has been processed successfully, an email will be sent out to 
 We are using Mailhog for email, which can be opened from below link
 
 [Mailhog](http://localhost:8025/)
+
+Below is a screenshot of email received with withdrawal info
+
+![img_4.png](img_4.png)

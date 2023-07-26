@@ -12,7 +12,6 @@ import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 import java.util.StringJoiner;
-import java.util.UUID;
 
 @NoArgsConstructor
 @Getter

@@ -40,6 +40,8 @@ class InvestmentRepositoryTest extends AbstractRepositoryTest<InvestmentReposito
         //then
         List<Investment> products = repository.findByInvestorId(investment.getInvestorId());
         assertThat(products).hasSize(1);
+        assertThat(products.get(0).getCreatedDate()).isNotNull();
+        assertThat(products.get(0).getUpdatedDate()).isNotNull();
     }
 
     @Test

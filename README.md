@@ -14,10 +14,12 @@ For building and running the application, the below tools were used
 - [Spring Boot](https://spring.io/)
 - [MapStruct](https://mapstruct.org/)
 - [Lombok](https://projectlombok.org/)
-- [H2](https://www.h2database.com/html/main.html)
+- [H2](https://www.h2database.com/html/main.html) Used for execution of Component/Integration Tests
+- [PostgreSQL](https://www.postgresql.org/) Main DB for service 
 - [SpringDoc OpenAPI](https://springdoc.org/v2/) For API documentation 
-- [Liquibase](https://docs.liquibase.com/home.html) For database migration maanagement
+- [Liquibase](https://docs.liquibase.com/home.html) For database migration Management
 - [Mailhog](https://docs.liquibase.com/home.html) For Email Testing
+- [FreeMarker](https://freemarker.apache.org/index.html) Java Email Template engine
 
 ## Requirements
 For building and running the application, please ensure the above tools/libraries have been installed and configured
@@ -81,6 +83,8 @@ PostgreSQL init process complete; ready for start up.
 
 ```
 
+NOTE: if you dont see the above, just run `docker-compose -f down --volumes` to clear any volumes that might be preventing the db from being created
+
 ### Database creation
 On investment-db container startup, an initialization script `investments-db-init.sh` (located in `db/` folder in the project's root directory) is executed. This creates the required `investment_db` in PostgreSQL 
 
@@ -143,7 +147,7 @@ Once the application is up and running, the API documentation can be accessed fr
 
 ## Testing the Service
 Please check this document for testing
-- [Testing the Service](TESING.md)
+- [Testing the Service](TESTING.md)
 
 ## Stopping the service
 

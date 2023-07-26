@@ -30,6 +30,8 @@ class ProductRepositoryTest extends AbstractRepositoryTest<ProductRepository> {
         assertThat(optionalProduct).isPresent();
         assertThat(optionalProduct.get().getProductName()).isEqualTo(product.getProductName());
         assertThat(optionalProduct.get().getProductType()).isEqualTo(product.getProductType());
+        assertThat(optionalProduct.get().getCreatedDate()).isNotNull();
+        assertThat(optionalProduct.get().getUpdatedDate()).isNotNull();
     }
 
     @Test
