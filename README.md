@@ -14,10 +14,12 @@ For building and running the application, the below tools were used
 - [Spring Boot](https://spring.io/)
 - [MapStruct](https://mapstruct.org/)
 - [Lombok](https://projectlombok.org/)
-- [H2](https://www.h2database.com/html/main.html)
+- [H2](https://www.h2database.com/html/main.html) Used for execution of Component/Integration Tests
+- [PostgreSQL](https://www.postgresql.org/) Main DB for service 
 - [SpringDoc OpenAPI](https://springdoc.org/v2/) For API documentation 
-- [Liquibase](https://docs.liquibase.com/home.html) For database migration maanagement
+- [Liquibase](https://docs.liquibase.com/home.html) For database migration Management
 - [Mailhog](https://docs.liquibase.com/home.html) For Email Testing
+- [FreeMarker](https://freemarker.apache.org/index.html) Java Email Template engine
 
 ## Requirements
 For building and running the application, please ensure the above tools/libraries have been installed and configured
