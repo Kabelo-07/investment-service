@@ -1,10 +1,8 @@
 package com.investment.config;
 
 import com.investment.exceptions.ErrorResponse;
-import com.investment.exceptions.InvalidRequestException;
 import com.investment.exceptions.InvalidWithdrawalRequestException;
 import com.investment.exceptions.InvestorNotFoundException;
-import com.investment.model.WithdrawalResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -48,12 +46,6 @@ public class ExceptionTranslator extends ResponseEntityExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<Object> handleException(Exception ex) {
         return new ResponseEntity<>(new ErrorResponse(ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
-    @ExceptionHandler(value = {InvalidRequestException.class})
-    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-    public ResponseEntity<Object> handleInvalidRequest(RuntimeException ex) {
-        return new ResponseEntity<>(new ErrorResponse(ex.getMessage()), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     /**

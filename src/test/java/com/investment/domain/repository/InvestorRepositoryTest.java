@@ -40,12 +40,14 @@ class InvestorRepositoryTest extends AbstractRepositoryTest<InvestorRepository> 
         //then
         Optional<Investor> investorOptional = repository.findById(investor.getId());
         assertThat(investorOptional).isPresent();
+        assertThat(investorOptional.get().getCreatedDate()).isNotNull();
+        assertThat(investorOptional.get().getUpdatedDate()).isNotNull();
     }
 
     @Test
     void willSaveMoreThanOneInvestor() {
         //given: no investors exist
-        assertThat(repository.count()).isEqualTo(0);
+        assertThat(repository.count()).isZero();
 
         //and
         Investor investor = Investor.builder()
@@ -143,7 +145,7 @@ class InvestorRepositoryTest extends AbstractRepositoryTest<InvestorRepository> 
                 .dateOfBirth(LocalDate.of(1988, 8, 1))
                 .build();
 
-        investor = entityManager.persistAndFlush(investor);
+        entityManager.persistAndFlush(investor);
 
         //when
         Investor existingInvestor = Investor.builder()

@@ -1,7 +1,6 @@
 package com.investment.service.impl;
 
 import com.investment.domain.entity.Investor;
-import com.investment.domain.repository.InvestmentRepository;
 import com.investment.domain.repository.InvestorRepository;
 import com.investment.exceptions.InvestorNotFoundException;
 import com.investment.mappers.InvestorMapper;

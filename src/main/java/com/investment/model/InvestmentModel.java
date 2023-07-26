@@ -1,7 +1,6 @@
 package com.investment.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.investment.utils.AmountSerializer;
 import lombok.Getter;

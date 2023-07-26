@@ -45,7 +45,7 @@ class InvestmentTest {
 
         //then
         assertThat(investment).isNotNull();
-        assertThat(investment2).isNotNull();
-        assertThat(investment2).isNotEqualTo(investment);
+        assertThat(investment2).isNotNull()
+                .isNotEqualTo(investment);
     }
 }
