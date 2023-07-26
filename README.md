@@ -143,7 +143,7 @@ Once the application is up and running, the API documentation can be accessed fr
 
 ## Testing the Service
 Please check this document for testing
-- [Testing the Service](TESING.md)
+- [Testing the Service](TESTING.md)
 
 ## Stopping the service
 
