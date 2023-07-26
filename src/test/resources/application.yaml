@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active:
+      - test
+  liquibase:
+    enabled: false
+    contexts:
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:h2:mem:memdb
+    driver-class-name: org.h2.Driver
+    username: user
+    password: pwd123
+  mail:
+    host: ${MAIL_HOST:localhost}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PWD:}
+    port: ${MAIL_PORT:1525}
+
+app:
+  max-withdrawal-percentage: 90
+  retirement-withdrawal-age: 65
+  email-configs:
+    withdrawal:
+      subject: Investment Withdrawal Confirmation!
+      template-key: withdrawal.ftl
+      from-email: withdrawals@investments.io
+

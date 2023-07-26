@@ -1,0 +1,71 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="20230723094500-1" author="kmashishi">
+        <createTable tableName="investors">
+            <column name="id" type="${uuidType}">
+                <constraints primaryKey="true" primaryKeyName="pk_investors_id" nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_birth" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email_address" type="varchar(255)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="uq_investors_email_address"/>
+            </column>
+            <column name="mobile_number" type="varchar(50)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="uq_investors_mobile_number"/>
+            </column>
+            <column name="address_line1" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_line2" type="varchar(255)"/>
+            <column name="suburb" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="province" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="postal_code" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="${dateTimeType}" defaultValueComputed="now()">
+                <constraints nullable="false" />
+            </column>
+            <column name="updated_date" type="${dateTimeType}" defaultValueComputed="now()">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--
+      Loading of test data on initialization, provided the context=test is also mapped in spring.liquibase.contexts
+    -->
+    <changeSet id="20230723094500-2" author="kmashishi" context="test-data">
+        <loadData file="db/test-data/investors.csv" separator=";" tableName="investors" usePreparedStatements="true">
+            <column name="id" type="uuid"/>
+            <column name="first_name" type="string"/>
+            <column name="last_name" type="string"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="mobile_number" type="string"/>
+            <column name="email_address" type="string"/>
+            <column name="address_line1" type="string"/>
+            <column name="address_line2" type="string"/>
+            <column name="suburb" type="string"/>
+            <column name="city" type="string"/>
+            <column name="province" type="string"/>
+            <column name="postal_code" type="string"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

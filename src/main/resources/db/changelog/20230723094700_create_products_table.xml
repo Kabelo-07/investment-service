@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="20230723094700-1" author="kmashishi">
+        <createTable tableName="products">
+            <column name="id" type="${uuidType}">
+                <constraints primaryKey="true" primaryKeyName="pk_products_id" nullable="false"/>
+            </column>
+            <column name="product_name" type="varchar(255)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="uq_products_product_name"/>
+            </column>
+            <column name="product_type" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="${dateTimeType}" defaultValueComputed="now()">
+                <constraints nullable="false" />
+            </column>
+            <column name="updated_date" type="${dateTimeType}" defaultValueComputed="now()">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--
+      Loading of test data on initialization, provided the context=test is also mapped in spring.liquibase.contexts
+    -->
+    <changeSet id="20230723094700-2" author="kmashishi" context="test-data">
+        <loadData file="db/test-data/products.csv" separator=";" tableName="products" usePreparedStatements="true">
+            <column name="id" type="uuid"/>
+            <column name="product_name" type="string"/>
+            <column name="product_type" type="string"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,55 @@
+version: '2'
+
+services:
+  investment-service:
+    container_name: investment-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://investments-db:5432/investments_db
+      SPRING_DATASOURCE_USERNAME: pguser
+      SPRING_DATASOURCE_PASSWORD: pwd123
+      SPRING_MAIL_HOST: mailhog
+      SPRING_MAIL_PORT: 1025
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: investment-service:latest
+    depends_on:
+      - investments-db
+    ports:
+      - '8080:8080'
+    networks:
+      - local-network
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog-service
+    ports:
+      - "8025:8025"
+    networks:
+      - local-network
+
+  investments-db:
+    image: postgres:14.1-alpine
+    container_name: investments-db
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: ArootPassw0rd
+      APP_DB_USER: pguser
+      APP_DB_PASS: pwd123
+      APP_DB_NAME: investments_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./db:/docker-entrypoint-initdb.d/
+    networks:
+      - local-network
+
+volumes:
+  db:
+    driver: local
+
+networks:
+  local-network:
+    driver: bridge

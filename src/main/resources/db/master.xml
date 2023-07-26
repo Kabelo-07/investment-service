@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="dateTimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
+    <property name="dateType" value="date" dbms="postgresql"/>
+    <property name="uuidType" value="uuid" dbms="postgresql"/>
+
+    <include file="db/changelog/20230723094500_create_investors_table.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20230723094700_create_products_table.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20230723100000_create_investment_table.xml" relativeToChangelogFile="false"/>
+
+</databaseChangeLog>
