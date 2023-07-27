@@ -20,6 +20,8 @@
 		<openapi-generator-maven-plugin.version>6.3.0</openapi-generator-maven-plugin.version>
 		<openapi.version>2.0.4</openapi.version>
 		<lib.phonenumber.version>8.13.17</lib.phonenumber.version>
+		<sonar.organization>kabelo-07</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
 		<dependency>
