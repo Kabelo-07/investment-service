@@ -2,18 +2,18 @@ package com.investment.validators.withdrawal;
 
 import com.investment.config.AppProperties;
 import com.investment.utils.WithdrawalValidationCommand;
+import com.investment.validators.Validator;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import org.springframework.core.Ordered;
 import org.springframework.validation.annotation.Validated;
 
 import jakarta.validation.constraints.NotNull;
 
-@RequiredArgsConstructor
 @Getter
-public abstract class WithdrawalValidator implements Ordered {
+public abstract class WithdrawalValidator extends Validator<WithdrawalValidationCommand> {
 
-    private final AppProperties properties;
+    protected WithdrawalValidator(AppProperties properties) {
+        super(properties);
+    }
 
     public abstract void validate(@Validated @NotNull WithdrawalValidationCommand command);
 }

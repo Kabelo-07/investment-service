@@ -1,6 +1,7 @@
 package com.investment.config;
 
 import com.investment.exceptions.ErrorResponse;
+import com.investment.exceptions.InvalidInvestorAgeException;
 import com.investment.exceptions.InvalidWithdrawalRequestException;
 import com.investment.exceptions.InvestorNotFoundException;
 import org.springframework.http.HttpHeaders;
@@ -35,6 +36,17 @@ public class ExceptionTranslator extends ResponseEntityExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<Object> handleInvestorNotFound(InvestorNotFoundException ex) {
         return new ResponseEntity<>(new ErrorResponse(ex.getMessage()), HttpStatus.NOT_FOUND);
+    }
+
+    /**
+     *
+     * @param ex InvalidInvestorAgeException
+     * @return errorResponse body with failure details, HTTP 404
+     */
+    @ExceptionHandler(value = {InvalidInvestorAgeException.class})
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+    public ResponseEntity<Object> handleInvestorAge(InvalidInvestorAgeException ex) {
+        return new ResponseEntity<>(new ErrorResponse("investor.age", ex.getMessage()), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     /**

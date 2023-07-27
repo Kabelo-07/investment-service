@@ -26,26 +26,39 @@ class WithdrawalValidationCommandTest {
 
     @Test
     void willThrowException_whenProductType_isNotSetOnCommand() {
-        assertThrows(NullPointerException.class, () -> WithdrawalValidationCommand.instanceOf(LocalDate.now(),
-                BigDecimal.valueOf(150), null, BigDecimal.valueOf(10)));
+        LocalDate localDate = LocalDate.now();
+        BigDecimal balance = BigDecimal.valueOf(150);
+        BigDecimal withdrawalAmount = BigDecimal.valueOf(10);
+        assertThrows(NullPointerException.class, () -> WithdrawalValidationCommand.instanceOf(localDate,
+                balance, null, withdrawalAmount));
     }
 
     @Test
     void willThrowException_whenDateOfBirth_isNotSetOnCommand() {
+        BigDecimal balance = BigDecimal.valueOf(150);
+        BigDecimal withdrawalAmount = BigDecimal.valueOf(10);
         assertThrows(NullPointerException.class, () -> WithdrawalValidationCommand.instanceOf(null,
-                BigDecimal.valueOf(150), ProductType.RETIREMENT, BigDecimal.valueOf(10)));
+                balance, ProductType.RETIREMENT, withdrawalAmount));
     }
 
     @Test
     void willThrowException_whenBalance_isNotSetOnCommand() {
-        assertThrows(IllegalArgumentException.class, () -> WithdrawalValidationCommand.instanceOf(LocalDate.now(),
-                BigDecimal.valueOf(0), ProductType.RETIREMENT, BigDecimal.valueOf(10)));
+        BigDecimal balance = BigDecimal.valueOf(0);
+        BigDecimal withdrawalAmount = BigDecimal.valueOf(10);
+        LocalDate localDate = LocalDate.now();
+
+        assertThrows(IllegalArgumentException.class, () -> WithdrawalValidationCommand.instanceOf(localDate,
+                balance, ProductType.RETIREMENT, withdrawalAmount));
     }
 
     @Test
     void willThrowException_whenWithdrawalAmount_isNotSetOnCommand() {
-        assertThrows(IllegalArgumentException.class, () -> WithdrawalValidationCommand.instanceOf(LocalDate.now(),
-                BigDecimal.valueOf(20), ProductType.RETIREMENT, BigDecimal.valueOf(0)));
+        BigDecimal balance = BigDecimal.valueOf(20);
+        BigDecimal withdrawalAmount = BigDecimal.valueOf(0);
+        LocalDate localDate = LocalDate.now();
+
+        assertThrows(IllegalArgumentException.class, () -> WithdrawalValidationCommand.instanceOf(localDate,
+                balance, ProductType.RETIREMENT, withdrawalAmount));
     }
 
 }

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
-public class WithdrawalValidationCommand {
+public class WithdrawalValidationCommand implements AbstractValidationCommand {
 
     private final LocalDate dateOfBirth;
     private final BigDecimal balance;

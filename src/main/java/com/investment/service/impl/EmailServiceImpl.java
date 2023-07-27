@@ -6,7 +6,6 @@ import com.investment.service.contract.EmailService;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -35,17 +34,19 @@ public class EmailServiceImpl implements EmailService {
             helper.setFrom(emailModel.getFromEmailAddress());
             helper.setTo(emailModel.getToEmailAddress());
 
-            String content = buildEmailContent(emailModel.getAttributes(), templateKey);
-            helper.setText(content, true);
+            if (!emailModel.getAttributes().isEmpty()) {
+                String content = buildEmailContent(emailModel.getAttributes(), templateKey);
+                helper.setText(content, true);
+            }
 
             mailSender.send(mimeMessage);
-        } catch (MessagingException e) {
+        } catch (Exception e) {
             log.error("Error occurred when sending email", e);
             throw new EmailException(e.getMessage());
         }
     }
 
-    public String buildEmailContent(Map<String, Object> attributes, String templateKey) {
+    private String buildEmailContent(Map<String, Object> attributes, String templateKey) {
         try {
             StringBuilder content = new StringBuilder();
             Template template = configuration.getTemplate(templateKey);

@@ -24,6 +24,7 @@ spring:
 app:
   max-withdrawal-percentage: 90
   retirement-withdrawal-age: 65
+  min-investor-age: 18
   email-configs:
     withdrawal:
       subject: Investment Withdrawal Confirmation!

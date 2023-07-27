@@ -18,8 +18,8 @@ public class AppProperties {
 
     private int maxWithdrawalPercentage = 90;
     private int retirementWithdrawalAge = 65;
+    private int minInvestmentAge = 10;
     private Map<String, EmailConfig> emailConfigs = new HashMap<>(0);
-
 
     @Getter
     @Setter

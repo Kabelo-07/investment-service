@@ -13,6 +13,9 @@ class MoneyUtilTest {
         assertEquals(0, MoneyUtil.calculatePercentageBetween(BigDecimal.valueOf(0), BigDecimal.valueOf(100)));
         assertEquals(10, MoneyUtil.calculatePercentageBetween(BigDecimal.valueOf(100), BigDecimal.valueOf(1000)));
         assertEquals(75, MoneyUtil.calculatePercentageBetween(BigDecimal.valueOf(75), BigDecimal.valueOf(100)));
-        assertThrows(NumberFormatException.class, () -> MoneyUtil.calculatePercentageBetween(BigDecimal.valueOf(0), BigDecimal.valueOf(0)));
+
+        BigDecimal value = BigDecimal.valueOf(0);
+        BigDecimal value1 = BigDecimal.valueOf(0);
+        assertThrows(NumberFormatException.class, () -> MoneyUtil.calculatePercentageBetween(value, value1));
     }
 }
