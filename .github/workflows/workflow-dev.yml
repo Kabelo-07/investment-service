@@ -35,6 +35,13 @@ jobs:
                 "password": "${env.RELEASE_TOKEN}"
               }
             ]'
+      - name: Cache Maven packages
+          #This action allows caching dependencies and build outputs to improve workflow execution time.
+          uses: actions/cache@v1
+          with:
+            path: ~/.m2
+            key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+            restore-keys: ${{ runner.os }}-m2
       - name: Build with Maven
         env:
           RELEASE_USERNAME: ${{ secrets.RELEASE_USERNAME }}
