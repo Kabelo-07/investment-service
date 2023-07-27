@@ -17,7 +17,7 @@ class DateTimeUtilTest {
 
     @Test
     void formatToShortDateTime() {
-        assertEquals("2023-07-27 00:50", DateTimeUtil.formatToShortDateTime(
+        assertEquals("2023-07-28 00:50", DateTimeUtil.formatToShortDateTime(
                 LocalDateTime.of(2023, Month.JULY, 27, 22, 50)
                         .toInstant(ZoneOffset.UTC)
         ));
