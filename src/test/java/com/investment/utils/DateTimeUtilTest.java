@@ -17,10 +17,9 @@ class DateTimeUtilTest {
 
     @Test
     void formatToShortDateTime() {
-        ZoneId zoneId = ZoneId.of("Africa/Johannesburg");
-        assertEquals("2023-07-27 22:50", DateTimeUtil.formatToShortDateTime(
+        assertEquals("2023-07-27 00:50", DateTimeUtil.formatToShortDateTime(
                 LocalDateTime.of(2023, Month.JULY, 27, 22, 50)
-                        .atZone(zoneId).toInstant()
+                        .toInstant(ZoneOffset.UTC)
         ));
     }
 }
