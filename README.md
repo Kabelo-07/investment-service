@@ -1,4 +1,5 @@
 # Investments Service
+[![Investment Service Pipeline](https://github.com/Kabelo-07/investment-service/actions/workflows/workflow-dev.yml/badge.svg?branch=main)](https://github.com/Kabelo-07/investment-service/actions/workflows/workflow-dev.yml)
 
 This is a Investment management application that provides investors with capabilities to:
 * View their profile and investment products.
