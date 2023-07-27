@@ -11,7 +11,7 @@ import com.investment.exceptions.InvestorNotFoundException;
 import com.investment.model.WithdrawalRequest;
 import com.investment.model.WithdrawalResponse;
 import com.investment.service.contract.InvestmentWithdrawalService;
-import com.investment.utils.DateUtil;
+import com.investment.utils.DateTimeUtil;
 import com.investment.utils.WithdrawalValidationCommand;
 import com.investment.validators.withdrawal.WithdrawalValidator;
 import lombok.RequiredArgsConstructor;
@@ -67,7 +67,7 @@ public class InvestmentWithdrawalServiceImpl implements InvestmentWithdrawalServ
         investment = investmentRepository.save(investment);
 
         WithdrawalResponse response = WithdrawalResponse.builder()
-                .reference(DateUtil.currentDateTimeInLongFormat())
+                .reference(DateTimeUtil.currentDateTimeInLongFormat())
                 .newBalance(investment.getBalance())
                 .build();
 

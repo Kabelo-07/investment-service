@@ -21,6 +21,9 @@ public class InvestmentModel {
     @JsonProperty("investment_product_id")
     private UUID id;
 
+    @JsonProperty("investor_id")
+    private UUID investorId;
+
     @JsonProperty("balance")
     @JsonSerialize(using = AmountSerializer.class)
     private BigDecimal balance;
@@ -33,6 +36,7 @@ public class InvestmentModel {
         return new StringJoiner(", ", InvestmentModel.class.getSimpleName() + "[", "]")
                 .add("id=" + id)
                 .add("balance=" + balance)
+                .add("investorId=" + investorId)
                 .add("product=" + product)
                 .toString();
     }

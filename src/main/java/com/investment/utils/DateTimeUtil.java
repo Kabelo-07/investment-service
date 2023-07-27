@@ -3,7 +3,7 @@ package com.investment.utils;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
-public enum DateUtil {
+public enum DateTimeUtil {
     INSTANCE;
 
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");

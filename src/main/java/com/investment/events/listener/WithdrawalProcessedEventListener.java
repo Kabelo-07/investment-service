@@ -4,7 +4,7 @@ import com.investment.config.AppProperties;
 import com.investment.events.model.WithdrawalProcessedEvent;
 import com.investment.model.EmailModel;
 import com.investment.service.contract.EmailService;
-import com.investment.utils.DateUtil;
+import com.investment.utils.DateTimeUtil;
 import com.investment.utils.MoneyUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -44,7 +44,7 @@ public class WithdrawalProcessedEventListener {
         map.put("openingBalance", MoneyUtil.formatToCurrency(event.getOpeningBalance()));
         map.put("closingBalance", MoneyUtil.formatToCurrency(event.getClosingBalance()));
         map.put("withdrawalAmount", MoneyUtil.formatToCurrency(event.getWithdrawalAmount()));
-        map.put("dateProcessed", DateUtil.formatToShortDateTime(event.getDateProcessed()));
+        map.put("dateProcessed", DateTimeUtil.formatToShortDateTime(event.getDateProcessed()));
         map.put("referenceNo", event.getReferenceNo());
 
         model.addAttributes(map);

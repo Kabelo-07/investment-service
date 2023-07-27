@@ -1,5 +1,6 @@
 package com.investment.utils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -17,5 +18,11 @@ class MoneyUtilTest {
         BigDecimal value = BigDecimal.valueOf(0);
         BigDecimal value1 = BigDecimal.valueOf(0);
         assertThrows(NumberFormatException.class, () -> MoneyUtil.calculatePercentageBetween(value, value1));
+    }
+
+    @Test
+    void formatToCurrency() {
+        assertEquals("R2 000,00", MoneyUtil.formatToCurrency(BigDecimal.valueOf(2000.00)));
+        assertEquals(StringUtils.EMPTY, MoneyUtil.formatToCurrency(null));
     }
 }

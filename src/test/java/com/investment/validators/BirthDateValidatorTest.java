@@ -3,13 +3,10 @@ package com.investment.validators;
 import com.investment.config.AppProperties;
 import com.investment.exceptions.InvalidInvestorAgeException;
 import com.investment.utils.BirthDateValidationCommand;
-import com.investment.utils.DateUtil;
-import jakarta.validation.ConstraintValidatorContext;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;

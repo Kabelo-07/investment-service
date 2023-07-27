@@ -3,7 +3,7 @@ package com.investment.validators;
 import com.investment.config.AppProperties;
 import com.investment.exceptions.InvalidInvestorAgeException;
 import com.investment.utils.BirthDateValidationCommand;
-import com.investment.utils.DateUtil;
+import com.investment.utils.DateTimeUtil;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -19,7 +19,7 @@ public class BirthDateValidator extends Validator<BirthDateValidationCommand> {
     public void validate(BirthDateValidationCommand command) {
         int investmentAge = getProperties().getMinInvestmentAge();
 
-        boolean isValidAge = DateUtil.calculateYearsBetween(command.getDateOfBirth(), LocalDate.now()) >= investmentAge;
+        boolean isValidAge = DateTimeUtil.calculateYearsBetween(command.getDateOfBirth(), LocalDate.now()) >= investmentAge;
         if (!isValidAge) {
             throw new InvalidInvestorAgeException();
         }

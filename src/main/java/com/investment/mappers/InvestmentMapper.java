@@ -24,6 +24,7 @@ public interface InvestmentMapper {
         return InvestmentModel.builder()
                 .balance(entity.getBalance())
                 .id(entity.getId())
+                .investorId(entity.getInvestorId())
                 .product(ProductModel.builder()
                         .productName(entity.getProductName())
                         .productType(map(entity.getProductType()))
@@ -38,6 +39,6 @@ public interface InvestmentMapper {
         };
     }
 
-    List<InvestmentModel> toModel(List<Investment> products);
+    List<InvestmentModel> toModels(List<Investment> products);
 
 }

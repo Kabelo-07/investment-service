@@ -32,7 +32,7 @@ public class InvestmentServiceImpl implements InvestmentService {
     @Override
     public List<InvestmentModel> findInvestmentsByInvestorId(UUID investorId) {
         List<Investment> products = investmentRepository.findByInvestorId(investorId);
-        return investmentMapper.toModel(products);
+        return investmentMapper.toModels(products);
     }
 
 }

@@ -3,7 +3,7 @@ package com.investment.validators.withdrawal;
 import com.investment.config.AppProperties;
 import com.investment.domain.valueobjects.ProductType;
 import com.investment.exceptions.InvalidWithdrawalRequestException;
-import com.investment.utils.DateUtil;
+import com.investment.utils.DateTimeUtil;
 import com.investment.utils.WithdrawalValidationCommand;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +22,7 @@ public class WithdrawalProductValidator extends WithdrawalValidator {
             return;
         }
 
-        int age = DateUtil.calculateYearsBetween(command.getDateOfBirth(), LocalDate.now());
+        int age = DateTimeUtil.calculateYearsBetween(command.getDateOfBirth(), LocalDate.now());
 
         int retirementWithdrawalAge = getProperties().getRetirementWithdrawalAge();
 

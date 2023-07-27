@@ -1,7 +1,7 @@
 package com.investment.validators;
 
 import com.investment.utils.AppConstants;
-import com.investment.utils.DateUtil;
+import com.investment.utils.DateTimeUtil;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
@@ -15,7 +15,7 @@ public class DateOfBirthValidator implements ConstraintValidator<DateOfBirth, Lo
             return false;
         }
 
-        return DateUtil.calculateYearsBetween(localDate, LocalDate.now()) >= AppConstants.MIN_INVESTMENT_AGE;
+        return DateTimeUtil.calculateYearsBetween(localDate, LocalDate.now()) >= AppConstants.MIN_INVESTMENT_AGE;
     }
 
 }
