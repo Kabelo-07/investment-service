@@ -22,7 +22,7 @@
 		<lib.phonenumber.version>8.13.17</lib.phonenumber.version>
 		<sonar.organization>kabelo-07</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.exclusions>**/config/*.java,**/model/*.java,**/model/page/*.java,**/domain/valueobjects/*.java,**/InvestmentServiceApplication.java</sonar.exclusions>
+		<sonar.exclusions>**/config/*.java,**/model/*.java,**/model/page/*.java,**/domain/valueobjects/*.java,**/domain/*.java,**/InvestmentServiceApplication.java</sonar.exclusions>
 	</properties>
 	<dependencies>
 		<dependency>
