@@ -155,4 +155,4 @@ Please check this document for testing
 To stop the service, run `docker-compose -f docker-compose.yaml down --volumes`
 
 ## Developer
-* Kabelo Mashishi ([Kabelo.Mashishi@icloud.com](Kabelo.Mashishi@icloud.com))
+* Kabelo Mashishi ([Kabelo.Mashishi@icloud.com](Kabelo.Mashishi@icloud.com)) / +27 71 891 6262
