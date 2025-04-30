@@ -37,7 +37,7 @@ jobs:
             ]'
       - name: Cache Maven packages
           #This action allows caching dependencies and build outputs to improve workflow execution time.
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
